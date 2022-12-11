@@ -1,6 +1,6 @@
 {
   "name": "crypto-service",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "crypto-service",
   "main": "./lib/index.js",
   "types": "./src/index.ts",

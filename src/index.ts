@@ -28,7 +28,7 @@ export interface CryptoPort {
 }
 
 export class CryptoService {
-  constructor(private encryption: boolean) {
+  constructor(private encryption: boolean, private hashKey: string) {
     this.exchangeKeypair = this.exchangeKeypair.bind(this);
     this.encryptAESMessage = this.encryptAESMessage.bind(this);
     this.decryptAESMessage = this.decryptAESMessage.bind(this);
@@ -148,7 +148,7 @@ export class CryptoService {
   hashData(text: string): string {
     const crypto = require('crypto');
     const shasum = crypto.createHash('sha256');
-    const msg = text + process.env.HASH_KEY;
+    const msg = text + this.hashKey;
     shasum.update(msg);
     const hash = shasum.digest('hex');
     return hash;
